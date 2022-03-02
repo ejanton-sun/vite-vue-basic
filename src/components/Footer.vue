@@ -3,10 +3,12 @@
     class="p-10 footer bg-base-200 text-base-content footer-center rounded"
   >
     <div class="grid grid-flow-col gap-4">
-      <a class="link link-hover">About us</a>
-      <a class="link link-hover">Contact</a>
+      <!-- <a class="link link-hover">About us</a> -->
+      <!-- <a class="link link-hover">Contact</a>
       <a class="link link-hover">Jobs</a>
-      <a class="link link-hover">Press kit</a>
+      <a class="link link-hover">Press kit</a> -->
+       <router-link class="link link-hover" to="/">Home</router-link>
+       <router-link class="link link-hover" to="/graph">Graph</router-link>
     </div>
     <div>
       <div class="grid grid-flow-col gap-4">

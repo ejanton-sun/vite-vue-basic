@@ -1,18 +1,32 @@
 <template>
-  <div class="flex-1 w-1/2 mx-auto py-10 relative h-screen">
-    <router-view></router-view>
-    <Footer />
+   <div>
+    <Header title="Todo">
+      <Button
+        :onClickHandle="onClick"
+        :title="showAddTaskDescription[showAddTask]"
+        class="btn btn-outline btn-primary"
+      />
+    </Header>
+    <div v-show="showAddTask">
+      <AddTask @add-task="addTask" />
+    </div>
+   <Tasks
+        @toggle-reminder="toggleReminder"
+        @delete-task="deleteTask"
+        :tasks="tasks"
+        class=""
+      />
   </div>
 </template>
 
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';
-import Button from './components/Button.vue';
-import Tasks from './components/Tasks.vue';
-import AddTask from './components/AddTask.vue';
+import Header from '../components/Header.vue';
+import Footer from '../components/Footer.vue';
+import Button from '../components/Button.vue';
+import Tasks from '../components/Tasks.vue';
+import AddTask from '../components/AddTask.vue';
 import { ref, onMounted } from 'vue';
 
 const BE_URL = import.meta.env.VITE_APP_BE_URL;
@@ -94,3 +108,8 @@ const fetchTask = async (id) => {
   return data;
 };
 </script>
+
+
+<style lang="scss" scoped>
+
+</style>
