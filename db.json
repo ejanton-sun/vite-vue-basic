@@ -4,7 +4,7 @@
       "id": 89363,
       "text": "asda",
       "day": "sdasd",
-      "reminder": true
+      "reminder": false
     },
     {
       "id": 21031,
@@ -16,6 +16,12 @@
       "id": 83811,
       "text": "asdas",
       "day": "dasdas",
+      "reminder": true
+    },
+    {
+      "id": 36209,
+      "text": "asdfg asdf asdkfjasdkpfasdf",
+      "day": "12312asd asd ",
       "reminder": true
     }
   ]

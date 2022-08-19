@@ -8,7 +8,9 @@
       <a class="link link-hover">Jobs</a>
       <a class="link link-hover">Press kit</a> -->
        <router-link class="link link-hover" to="/">Home</router-link>
-       <router-link class="link link-hover" to="/graph">Graph</router-link>
+       <router-link class="link link-hover" to="/chart/line">Line Chart</router-link>
+       <router-link class="link link-hover" to="/chart/scatter-plot">Scatter Plot Chart</router-link>
+       <router-link class="link link-hover" to="/typehead">Typehead</router-link>
     </div>
     <div>
       <div class="grid grid-flow-col gap-4">

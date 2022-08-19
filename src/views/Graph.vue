@@ -1,7 +1,7 @@
 <template>
   <div id="app" style="width: 400px">
     <button @click="shuffleData">Shuffle</button>
-    <BarChart v-bind="barChartProps" />
+    <!-- <BarChart v-bind="barChartProps" /> -->
     <ScatterChart v-bind="scatterChartProps" />
   </div>
 </template>
@@ -16,8 +16,10 @@ import {
 } from 'vue-chart-3';
 import { ref, computed, defineComponent } from 'vue';
 import { shuffle, random } from 'lodash';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 Chart.register(...registerables);
+Chart.register(ChartDataLabels);
 
 export default defineComponent({
   name: 'Graph',
@@ -59,23 +61,23 @@ export default defineComponent({
         y: random(-10, 10),
       },
       {
-        x: random(-10, 10),
+        x: random(-7, 10),
         y: random(-10, 10),
       },
       {
-        x: -random(-10, 10),
-        y: random(-10, 10),
-      },
-      {
-        x: random(-10, 10),
+        x: -random(-4, 10),
         y: random(-10, 10),
       },
       {
         x: random(-10, 10),
+        y: random(-5, 10),
+      },
+      {
+        x: random(-2, 10),
         y: random(-10, 10),
       },
       {
-        x: random(-10, 10),
+        x: random(-6, 10),
         y: random(-10, 10),
       },
     ]);
@@ -159,35 +161,41 @@ export default defineComponent({
             display: true,
             text: 'Scatter plot',
           },
+          datalabels: {
+            formatter: function (value, context) {
+              return 'ホーゲ \n\n';
+            },
+          },
+          tooltip: {
+            enabled: false,
+          },
         },
+
         scales: {
           y: {
             type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
             position: 'left',
             ticks: {
-              color: '#123E6B',
-            },
-          },
-          y2: {
-            type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-            position: 'right',
-            reverse: true,
-            ticks: {
-              color: '#12FE6B',
+              color: '#FF0000',
             },
             grid: {
-              drawOnChartArea: false, // only want the grid lines for one axis to show up
+              lineWidth: (context) => {
+                return context.tick.value == 0 ? 5 : 1
+              },
+            },
+          },
+          x: {
+            position: 'left',
+            ticks: {
+              color: '#00FF00',
+            },
+            grid: {
+               lineWidth: (context) => {
+                return context.tick.value == 0 ? 5 : 1
+              },
             },
           },
         },
-         tooltips: {
-         callbacks: {
-            label: function(tooltipItem, data) {
-               var label = data.labels[tooltipItem.index];
-               return label + ':asdasd (' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ')';
-            }
-         }
-      }
       },
     });
 

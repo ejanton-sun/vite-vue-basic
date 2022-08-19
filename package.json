@@ -9,11 +9,13 @@
     "backend": "json-server --watch db.json --port 5000"
   },
   "dependencies": {
+    "chartjs-plugin-datalabels": "^2.0.0",
     "daisyui": "^2.0.2",
     "json-server": "^0.17.0",
     "vue": "^3.2.25",
     "vue-chart-3": "^3.1.2",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "vue3-simple-typeahead": "^1.0.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.2.0",
